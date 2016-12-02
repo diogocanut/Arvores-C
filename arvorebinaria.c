@@ -60,11 +60,18 @@ int remove_folha(Arv *A, int elem){
     }
 
     if((*A)->info=elem){
-        if((*A)->sad ==NULL && (*A)->sae
+        if((*A)->sad ==NULL && (*A)->sae==NULL){
+            free(*A);
+            *A=NULL;
+            return 1;
+        }
 
     }
+    else return 0;
 
 }
+
+
 
 
 void print_pre_ordem(Arv A){
