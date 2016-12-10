@@ -175,13 +175,20 @@ void localiza_pai(Arv A, char elem, Arv *pt, Arv *pai) {
 
 }
 
+int max(int Esq, int Dir){
+    if (Esq > Dir)
+        return Esq;
+    else return Dir;
+    }
+
+
 int altura_arv(Arv A) {
 
     int max(int Esq, int Dir){
         if (Esq > Dir)
             return Esq;
         else return Dir;
-    }
+        }
 
 
     if (A == NULL)
@@ -190,15 +197,17 @@ int altura_arv(Arv A) {
     return(max(altura_arv(A->sae),altura_arv(A->sad))+1);
 }
 
-int altura_no(Arv A, char elem, int *altura){
+int altura_no(Arv A, char elem, int altura){
 
     if(A->info == elem){
         return altura;
     }
-    altura_no(A->sae,elem,altura++);
+    if(A==NULL){
+        return 0;
+    }
 
-    altura=0;
-    altura_no(A->sad,elem,altura++);
+    altura_no(A->sae,elem,altura+1);
+    altura_no(A->sad,elem,altura+1);
 
     return -1;
 

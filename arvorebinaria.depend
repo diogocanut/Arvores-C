@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1481337765 source:/home/knut/Documents/C/arvorebinaria/main.c
+1481343190 source:/home/knut/Documents/C/arvorebinaria/main.c
 	<stdio.h>
 	<stdlib.h>
 	"arvorebinaria.h"
 
-1481337512 /home/knut/Documents/C/arvorebinaria/arvorebinaria.h
+1481343137 /home/knut/Documents/C/arvorebinaria/arvorebinaria.h
 	<stdio.h>
 
-1481340989 source:/home/knut/Documents/C/arvorebinaria/arvorebinaria.c
+1481343133 source:/home/knut/Documents/C/arvorebinaria/arvorebinaria.c
 	"arvorebinaria.h"
 

@@ -4,7 +4,7 @@
 
 int main()
 {
-    int escolha,escolha1,i=0;
+    int escolha,escolha1,i=0,*altura=0;
     char c;
     Arv *V; /*Vetor de arvores */
 
@@ -22,6 +22,8 @@ int main()
     printf("8 - Checa vazia\n");
     printf("9 - Busca por elemento\n");
     printf("10 - Remove folha\n");
+    printf("11 - Determinar altura\n");
+    printf("12 - Altura de um dado no\n");
     printf("15 - Sair\n");
     scanf("%d",&escolha);
 
@@ -123,6 +125,25 @@ int main()
            }else printf("Nao removida!\n");
 
         }else printf("Vazia\n");
+        break;
+
+    case 11:
+        printf("Digite o numero da arvore em que deseja verificar altura\n");
+        scanf("%d",&escolha1);
+        if(!arvore_vazia(V[escolha1])){
+            printf("A arvore possui altura %d\n", altura_arv(V[escolha1]));
+        }else printf("Arvore vazia\n");
+        break;
+
+    case 12:
+        printf("Digite o numero da arvore em que deseja verificar altura\n");
+        scanf("%d",&escolha1);
+        printf("digite o caracter do nó em que deseja verificar altura\n");
+        scanf(" %c",&c);
+        if(!arvore_vazia(V[escolha1])){
+
+            printf("A arvore possui altura %d\n", altura_no(V[escolha1],c,0));
+        }else printf("Arvore vazia\n");
         break;
     }
 
