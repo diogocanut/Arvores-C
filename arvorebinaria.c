@@ -198,12 +198,12 @@ int altura_arv(Arv A) {
 }
 
 int altura_no(Arv A, char elem, int altura){
+    if(A==NULL){
+        return 0;
+    }
 
     if(A->info == elem){
         return altura;
-    }
-    if(A==NULL){
-        return 0;
     }
 
     altura_no(A->sae,elem,altura+1);
@@ -214,6 +214,10 @@ int altura_no(Arv A, char elem, int altura){
 }
 
 int iguais(Arv A1, Arv A2) {
+    if(A1==NULL){
+        return -1;
+    }
+
     if(A1->info != A2->info){
         return -1;
     }

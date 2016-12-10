@@ -10,3 +10,14 @@
 1481343133 source:/home/knut/Documents/C/arvorebinaria/arvorebinaria.c
 	"arvorebinaria.h"
 
+1481392334 source:/home/knute/Documentos/C/Arvores-C/arvorebinaria.c
+	"arvorebinaria.h"
+
+1481390453 /home/knute/Documentos/C/Arvores-C/arvorebinaria.h
+	<stdio.h>
+
+1481392037 source:/home/knute/Documentos/C/Arvores-C/main.c
+	<stdio.h>
+	<stdlib.h>
+	"arvorebinaria.h"
+

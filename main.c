@@ -4,7 +4,7 @@
 
 int main()
 {
-    int escolha,escolha1,i=0,*altura=0;
+    int escolha,escolha1,escolha2,i=0,*altura=0;
     char c;
     Arv *V; /*Vetor de arvores */
 
@@ -24,6 +24,7 @@ int main()
     printf("10 - Remove folha\n");
     printf("11 - Determinar altura\n");
     printf("12 - Altura de um dado no\n");
+    printf("13 - Checar se duas arvores são iguais\n");
     printf("15 - Sair\n");
     scanf("%d",&escolha);
 
@@ -57,6 +58,7 @@ int main()
             if(V[i]!=NULL) printf("\nArvore numero: %d raiz: %c",i,V[i]->info);
 
             }
+            break;
 
     case 4:
         escolha1 = 0;
@@ -144,6 +146,18 @@ int main()
 
             printf("A arvore possui altura %d\n", altura_no(V[escolha1],c,0));
         }else printf("Arvore vazia\n");
+        break;
+
+    case 13:
+        printf("Digite o numero das arvores que deseja comparar\n");
+        scanf("%d %d",&escolha1,&escolha2);
+
+        if(!((arvore_vazia(V[escolha1])) || (arvore_vazia(V[escolha2])))){
+
+            if(iguais(V[escolha1],V[escolha2])==0) printf("Iguais\n");
+            else printf("Diferentes\n");
+
+        }else printf("Uma ou as duas arvores estão vazias\n");
         break;
     }
 
