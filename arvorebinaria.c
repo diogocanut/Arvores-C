@@ -6,7 +6,7 @@ Arv cria_vazia(){
 }
 
 
-Arv cria_arvore(int elem, Arv esq, Arv dir){
+Arv cria_arvore(char elem, Arv esq, Arv dir){
 
     Arv novo = (Arv) malloc(sizeof(Arv));
     if(novo==NULL){
@@ -22,6 +22,19 @@ Arv cria_arvore(int elem, Arv esq, Arv dir){
 }
 
 
+ void inserir(Arv *A, char elem){
+     if(*A == NULL){
+        *A = cria_arvore(elem,NULL,NULL);
+
+     }else{
+         if(elem < (*A)->info)
+              inserir(&(*A)->sae, elem);
+         else
+              inserir(&(*A)->sad, elem);
+     }
+ }
+
+
 int arvore_vazia(Arv A){
     if(A==NULL){
         return 1;
@@ -30,18 +43,18 @@ int arvore_vazia(Arv A){
 
 }
 
-void libera_arvore(Arv *A){
-    if(*A!=NULL){
-        libera_arvore((*A)->sae);
-        libera_arvore((*A)->sad);
-        free(*A);
+void libera_arvore(Arv A){
+    if(A!=NULL){
+        libera_arvore(A->sae);
+        libera_arvore(A->sad);
+        free(A);
     }
-    *A = NULL;
+    A = NULL;
 
 
 }
 
-int busca(Arv A, int elem){
+int busca(Arv A, char elem){
     if(A==NULL){
         return 0;
     }
@@ -54,7 +67,7 @@ int busca(Arv A, int elem){
     busca(A->sad,elem);
 }
 
-int remove_folha(Arv *A, int elem){
+int remove_folhaa(Arv *A, char elem){
     if(*A==NULL){
         return 0;
     }
@@ -74,9 +87,9 @@ int remove_folha(Arv *A, int elem){
 
 
 
-void print_pre_ordem(Arv A){
+void print_preorder(Arv A){
     if(A){
-        printf("%d\n",A->info);
+        printf("%c\n",A->info);
         print_preorder(A->sae);
         print_preorder(A->sad);
     }
@@ -85,23 +98,23 @@ void print_pre_ordem(Arv A){
 
 void print_inordem(Arv A){
     if(A){
-        print_inorder(A->sae);
-        printf("%d\n",A->info);
-        print_inorder(A->sad);
+        print_inordem(A->sae);
+        printf("%c\n",A->info);
+        print_inordem(A->sad);
     }
 }
 
-void print_post_ordem(Arv A){
+void print_postorder(Arv A){
     if(A){
         print_postorder(A->sae);
         print_postorder(A->sad);
-        printf("%d\n",A->info);
+        printf("%c\n",A->info);
     }
 }
 
-int remove_folha(Arv* A, int elem) {
+int remove_folha(Arv* A, char elem) {
 
-    Arv* pai, *ptnodo;
+    Arv pai, ptnodo;
 
     if(*A == NULL)
         return 0;
@@ -120,7 +133,7 @@ int remove_folha(Arv* A, int elem) {
 
         ptnodo = NULL;
         pai = NULL;
-        Localiza_Pai(*A, elem, &ptnodo, &pai);
+        localiza_pai(*A, elem, &ptnodo, &pai);
 
         if(ptnodo == NULL)
             return 0;
@@ -148,7 +161,7 @@ int remove_folha(Arv* A, int elem) {
 
 }
 
-void localiza_pai(Arv A, int elem, Arv *pt, Arv *pai) {
+void localiza_pai(Arv A, char elem, Arv *pt, Arv *pai) {
 
     if(A != NULL) {
 
@@ -187,13 +200,13 @@ int altura_arv(Arv A) {
     }
 
 
-    if (Ptab == NULL)
+    if (A == NULL)
         return 0;
 
     return(max(altura_arv(A->sae),altura_arv(A->sad))+1);
 }
 
-int altura_no(Arv A, int elem, int *altura){
+int altura_no(Arv A, char elem, int *altura){
 
     if(A->info == elem){
         return altura;
