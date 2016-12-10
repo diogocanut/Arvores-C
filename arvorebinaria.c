@@ -229,7 +229,26 @@ int iguais(Arv A1, Arv A2) {
 
 }
 
+int nro_folha(Arv A){
+  if(A == NULL)
+    return 0;
+  else
+    if(A->sae == A->sad)
+      return 1;
+   else
+      return nro_folha(A->sae) + nro_folha(A->sad);
+}
 
+int um_filho(Arv A){
+  if(A == NULL)
+    return 0;
+  else
+    if((A->sae == NULL && A->sad != NULL) || (A->sae != NULL && A->sad == NULL))
+      return 1;
+   else
+      return nro_folha(A->sae) + nro_folha(A->sad);
+
+}
 
 
 

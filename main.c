@@ -25,7 +25,9 @@ int main()
     printf("11 - Determinar altura\n");
     printf("12 - Altura de um dado no\n");
     printf("13 - Checar se duas arvores são iguais\n");
-    printf("15 - Sair\n");
+    printf("14 - Numero de folhas\n");
+    printf("15 - Numero de nós com apenas 1 filho\n");
+    printf("16 - Sair\n");
     scanf("%d",&escolha);
 
     switch(escolha){
@@ -159,9 +161,23 @@ int main()
 
         }else printf("Uma ou as duas arvores estão vazias\n");
         break;
+
+    case 14:
+        printf("Digite o numero da arvore em que deseja verificar o numero de folhas\n");
+        scanf("%d",&escolha1);
+        if(!(arvore_vazia(V[escolha1]))){
+            printf("O numero de folhas é: %d" ,nro_folha(V[escolha1]));
+        }else printf("Arvore nula");
+
+    case 15:
+        printf("Digite o numero da arvore em que deseja verificar o numero de nós com apenas um filho\n");
+        scanf("%d",&escolha1);
+        if(!(arvore_vazia(V[escolha1]))){
+            printf("O numero de nós com apenas um filho é: %d" ,um_filho(V[escolha1]));
+        }else printf("Arvore nula");
     }
 
-  }while(escolha!=15);
+  }while(escolha!=16);
 
 
 

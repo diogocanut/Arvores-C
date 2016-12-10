@@ -18,4 +18,5 @@ void print_inordem(Arv A);
 void print_postorder(Arv A);
 int altura_arv(Arv A);
 int altura_no(Arv A, char elem, int altura);
+int nro_folha(Arv A);
 
