@@ -67,22 +67,6 @@ int busca(Arv A, char elem){
     busca(A->sad,elem);
 }
 
-int remove_folhaa(Arv *A, char elem){
-    if(*A==NULL){
-        return 0;
-    }
-
-    if((*A)->info=elem){
-        if((*A)->sad ==NULL && (*A)->sae==NULL){
-            free(*A);
-            *A=NULL;
-            return 1;
-        }
-
-    }
-    else return 0;
-
-}
 
 
 

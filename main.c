@@ -20,6 +20,8 @@ int main()
     printf("6 - Print inorder\n");
     printf("7 - Print preorder\n");
     printf("8 - Checa vazia\n");
+    printf("9 - Busca por elemento\n");
+    printf("10 - Remove folha\n");
     printf("15 - Sair\n");
     scanf("%d",&escolha);
 
@@ -95,6 +97,32 @@ int main()
            printf("Vazia\n");
 
         }else printf("Nao vazia\n");
+        break;
+
+    case 9:
+        printf("Digite o numero da arvore em que deseja realizar a busca\n");
+        scanf("%d",&escolha1);
+        printf("digite o caracter pelo qual deseja buscar\n");
+        scanf(" %c",&c);
+        if(!arvore_vazia(V[escolha1])){
+           if(busca(V[escolha1],c)){
+            printf("Encontrou!\n");
+           }else printf("Nao encontrou!\n");
+
+        }else printf("Vazia\n");
+        break;
+
+    case 10:
+        printf("Digite o numero da arvore em que deseja remover a folha\n");
+        scanf("%d",&escolha1);
+        printf("digite o caracter da folha que deseja remover\n");
+        scanf(" %c",&c);
+        if(!arvore_vazia(V[escolha1])){
+           if(remove_folha(&(V[escolha1]),c)){
+                printf("Removida!\n");
+           }else printf("Nao removida!\n");
+
+        }else printf("Vazia\n");
         break;
     }
 
